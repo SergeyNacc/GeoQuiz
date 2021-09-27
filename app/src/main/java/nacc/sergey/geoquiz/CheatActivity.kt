@@ -43,6 +43,11 @@ class CheatActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, data)
     }
 
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putBoolean(EXTRA_ANSWER_IS_TRUE, answerIsTrue)
+    }
+
     companion object {
         fun newIntent(packageContext: Context, answerIsTrue: Boolean): Intent {
             return Intent(packageContext, CheatActivity::class.java).apply {
